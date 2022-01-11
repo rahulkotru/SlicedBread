@@ -25,6 +25,10 @@ Mirrors the image along the x-axis or y-axis or both
 <img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/1.jpg" width="100px">     <img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/backhand.gif" width="50px"> 
 <img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/4.jpg" width="100px" rotate="90 deg"><img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/backhand.gif" width="50px"><img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/5.jpg" width="100px" rotate="90 deg">
 ### 4) Channel Stacking and Tensor
-Create multi-channel images or image tensors. Can be used for channel separation and channel reordering as well.
+Create multi-channel images or image tensors. Can be used for channel separation and channel reordering as well
+
+<img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/6.JPG" width="100px">     <img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/backhand.gif" width="50px"> 
+<img src="https://raw.githubusercontent.com/rahulkotru/SlicedBread/master/assets/2.gif" width="100px" rotate="90 deg">
+
 ### 5) Patches Processing
 Create custom image patches(tiles) to train and test Convolutional Neural Networks. Recombine patches and integrate patches with lossless conversion.
