@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 from PIL import Image
 Image.MAX_IMAGE_PIXELS=100000000000
+from tqdm import tqdm
 
 class Picture():
 
@@ -33,6 +34,12 @@ class Picture():
         proceed=input()
         if(proceed.lower()=='n'):
             print("Alright dubby")
+            return
+        elif(proceed.lower()=='y'):
+            print("Proceeding to tile input into tiles of dimension {}x{}".format(size,size))
+            
+            finalPath=os.path.join(self.path,self.name)
+            print(finalPath)
         
 
 
@@ -50,3 +57,5 @@ class Picture():
 img=Picture()
 img.tile(64)
 #D:\20_SanFrancisco\San Francisco\Flipped/T11.tif
+
+#D:\28_GitHub\SlicedBread\Tester\Test.tif
