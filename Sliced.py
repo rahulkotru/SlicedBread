@@ -13,7 +13,7 @@ class Picture():
         print(self.path)
         if (os.path.exists(self.path)):
             mainImg=tiff.imread(self.path)
-            self.height,self.width=mainImg.shape
+            self.height,self.width,_=mainImg.shape
             self.removeExt()
             print("Filename is: "+self.name)
 
@@ -28,7 +28,19 @@ class Picture():
         #print("This method will create tiles of dimension defined by the user")
         print("The current dimension of the image is:  {}  x  {}".format(self.height,self.width))
         print("Please enter valid tile dimensions(example: 225, 256, 512,1024)")
-        tileSize=int(input())
+        print("Total patches possible are: {}".format((self.height//size)+(self.width//size)))
+        print("Press Y to Continue\nPress N to quit")
+        proceed=input()
+        if(proceed.lower()=='n'):
+            print("Alright dubby")
+        
+
+
+    def tile_patch(imag,l,t,r,b):
+        cropped=imag.crop((l,t,r,b))
+        convert_to_array=np.array(cropped)
+        return convert_to_array
+
 
 
 
@@ -36,5 +48,5 @@ class Picture():
 
 
 img=Picture()
-img.tile()
+img.tile(64)
 #D:\20_SanFrancisco\San Francisco\Flipped/T11.tif
