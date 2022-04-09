@@ -58,7 +58,7 @@ class Picture():
                     self.tilePatch(left,top,right,bottom,finalPath,count)
                     pbar.update(1)
                     
-                    #print('\n{}.tif'.format(count),'has been saved.')
+                    print('\n{}.tif'.format(count),'has been saved.')
         
 
 
