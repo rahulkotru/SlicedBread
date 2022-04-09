@@ -27,8 +27,11 @@ class Picture():
 
     def tile(self,size):
         #print("This method will create tiles of dimension defined by the user")
+        self.image=Image.open(self.path)
         print("The current dimension of the image is:  {}  x  {}".format(self.height,self.width))
         print("Please enter valid tile dimensions(example: 225, 256, 512,1024)")
+        patchX,patchY=self.height//size, self.width//size
+        totalPatch=patchX+patchY
         print("Total patches possible are: {}".format((self.height//size)+(self.width//size)))
         print("Press Y to Continue\nPress N to quit")
         proceed=input()
@@ -37,16 +40,33 @@ class Picture():
             return
         elif(proceed.lower()=='y'):
             print("Proceeding to tile input into tiles of dimension {}x{}".format(size,size))
-            
-            finalPath=os.path.join(self.path,self.name)
-            print(finalPath)
+            pathname=os.path.dirname(self.path)
+            finalPath=os.path.join(pathname,self.name)
+            if not os.path.exists(finalPath):
+                os.makedirs(finalPath)
+
+            pbar=tqdm(total=(self.height//size)+(self.width//size) ,desc='Creating Tiles')
+            left,top,right,bottom=0,0,0,0
+            count=0
+            for i in range((self.height//size)):
+                for j in range((self.width//size)):
+                    left=j*size+j 
+                    top=i*size+i
+                    right=left+size
+                    bottom=top+size
+                    count+=1
+                    self.tilePatch(left,top,right,bottom,finalPath,count)
+                    pbar.update(1)
+                    
+                    #print('\n{}.tif'.format(count),'has been saved.')
         
 
 
-    def tile_patch(imag,l,t,r,b):
-        cropped=imag.crop((l,t,r,b))
-        convert_to_array=np.array(cropped)
-        return convert_to_array
+    def tilePatch(self,l,t,r,b,path,c):
+        cropped=self.image.crop((l,t,r,b))
+        convertToArray=np.array(cropped)
+        print(convertToArray)
+        tiff.imsave(path+'/{}.tif'.format(c),convertToArray)
 
 
 
