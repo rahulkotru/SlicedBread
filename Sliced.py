@@ -16,11 +16,14 @@ class Image():
             print("Filename is: "+self.name)
 
 
+
         
 
-    def tile(self,row, col):
-        self.row = row
-        self.col = col
+    def tile(self):
+        print("This method will create tiles of dimension defined by the user")
+        print("The current dimension of the image is: "+ self.height + " x " + self.width)
+        print("Please enter valid tile dimensions(example: 225, 256, 512,1024)")
+
 
     def removeExt(self):
         base=os.path.basename(self.path)
@@ -30,5 +33,5 @@ class Image():
 
 
 img=Image()
-
-
+img.tile()
+#D:\20_SanFrancisco\San Francisco\Flipped/T11.tif
