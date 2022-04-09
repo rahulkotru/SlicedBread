@@ -44,12 +44,12 @@ class Picture():
             finalPath=os.path.join(pathname,self.name)
             if not os.path.exists(finalPath):
                 os.makedirs(finalPath)
-
             pbar=tqdm(total=(self.height//size)+(self.width//size) ,desc='Creating Tiles')
             left,top,right,bottom=0,0,0,0
             count=0
             for i in range((self.height//size)):
                 for j in range((self.width//size)):
+                    print('hi')
                     left=j*size+j 
                     top=i*size+i
                     right=left+size
