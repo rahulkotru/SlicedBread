@@ -39,17 +39,18 @@ class Picture():
             print("Alright dubby")
             return
         elif(proceed.lower()=='y'):
-            print("Proceeding to tile input into tiles of dimension {}x{}".format(size,size))
+            
             pathname=os.path.dirname(self.path)
             finalPath=os.path.join(pathname,self.name)
+            finalPath=finalPath+'/'
             if not os.path.exists(finalPath):
                 os.makedirs(finalPath)
             pbar=tqdm(total=(self.height//size)+(self.width//size) ,desc='Creating Tiles')
             left,top,right,bottom=0,0,0,0
+            print("Proceeding to tile input into tiles of dimension {}x{} and will be saved in directory: {}\n".format(size,size,finalPath))
             count=0
             for i in range((self.height//size)):
                 for j in range((self.width//size)):
-                    print('hi')
                     left=j*size+j 
                     top=i*size+i
                     right=left+size
@@ -63,10 +64,14 @@ class Picture():
 
 
     def tilePatch(self,l,t,r,b,path,c):
-        cropped=self.image.crop((l,t,r,b))
-        convertToArray=np.array(cropped)
-        print(convertToArray)
-        tiff.imsave(path+'/{}.tif'.format(c),convertToArray)
+        #print("Hello {}".format(i))
+        print(self.path)
+        check=Image.open(self.path)
+        cropped=check.crop((l,t,r,b))
+        print(type(cropped))
+        #convertToArray=np.asarray(cropped)
+        #print(convertToArray)
+        #tiff.imsave(path+'/{}.tif'.format(c),convertToArray)
 
 
 
@@ -78,4 +83,4 @@ img=Picture()
 img.tile(64)
 #D:\20_SanFrancisco\San Francisco\Flipped/T11.tif
 
-#D:\28_GitHub\SlicedBread\Tester\Test.tif
+#D:/28_GitHub/SlicedBread/Tester/Test.tif
